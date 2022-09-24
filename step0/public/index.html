@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script>
+            function 클릭() {
+                fetch("/login", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: "kakasoo",
+                        pw: "kakasoo",
+                    }),
+                })
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((res) => {
+                        console.log(res);
+                    });
+            }
+
+            window.onload = () => {
+                document.getElementById("login").onclick = 클릭;
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            <span style="width: 50px">id</span>
+            <input id="id" name="id" />
+        </div>
+        <div>
+            <span style="width: 50px">pw</span>
+            <input id="pw" name="pw" />
+        </div>
+
+        <button id="login">login</button>
+    </body>
+</html>
